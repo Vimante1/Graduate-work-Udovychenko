@@ -1,0 +1,152 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comfortaa', cursive;
+}
+
+.menuPanel {
+    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid silver;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    opacity: 100;
+    z-index: 9999;
+}
+
+.nav {
+    font-size: 25px;
+    margin: 0 100px 0 100px;
+    display: flex;
+    list-style: none;
+    margin: 10px 100px 10px 100px;
+}
+
+.nav ul {
+margin: 0;
+padding: 0;
+display: flex;
+list-style: none;
+}
+
+.nav ul li {
+text-decoration: none;
+margin-right: 60px;
+margin-right: 60px;
+font-style: normal;
+}
+
+.nav a {
+color:black;
+text-decoration: none ;
+border: none ;
+}
+
+.user{
+    margin-left : auto;
+}
+
+.userimg{
+height:25px;
+}
+
+.content{
+margin: 0 100px 0 100px;
+}
+
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.block img{
+    vertical-align:central;
+    display:flex;
+    margin-left: 5px;
+    height :50px;
+}
+.block ul {
+list-style:none;
+}
+.welcome{
+    display:flex;
+}
+.ddd {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.dddd {
+    text-align:center;
+}
+
+.visible {
+    opacity: 1;
+    transition: all 1.5s;
+    transform: translateY(0%);
+}
+
+.authblock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.information {
+border: 1px solid silver;
+border-radius: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
+height: auto;
+width: 400px;
+background-color: #f7f9fb;
+position: absolute;
+flex-direction: column;
+}
+
+.inputplace 
+{  display:flex;
+align-items:center;
+flex-direction:column;
+margin-bottom: 20px
+}
+
+.inputplace input {
+font-family: 'Comfortaa', cursive;
+border: 1px solid silver;
+border-radius: 20px;
+height: 30px;
+width: 350px;
+text-align: center;
+}
+
+.information button {
+    font-family: 'Comfortaa', cursive;
+    background-color: white;
+    border: 1px solid silver;
+    border-radius: 20px;
+    height: 34px;
+    width: 356px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.information h3{
+    margin:1px;
+}
+
+.information a {
+    text-decoration: none;
+    color: black;
+}
+
+.information a:hover{
+    color:forestgreen;
+}

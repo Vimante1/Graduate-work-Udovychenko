@@ -1,0 +1,33 @@
+﻿<div class="authblock">
+    <div class="information">
+
+        <h1>Реєстрація</h1>
+
+        <form method="post" asp-controller="Registration" asp-action="Registration">
+            <div class="inputplace">
+                <h3>Фамілія</h3>
+                <input name="Surname" required />
+            </div>
+            <div class="inputplace">
+                <h3>Им'я</h3>
+                <input name="Name" required />
+            </div>
+            <div class="inputplace">
+                <h3>E-mail адрес</h3>
+                <input type="email" name="Email" required />
+            </div>
+            <div class="inputplace">
+                <h3>Пароль</h3>
+                <input type="password" name="Password" required />
+            </div>
+            <div class="inputplace">
+                <h3>Повторіть пароль</h3>
+                <input type="Password" name="ConfirmPassword" />
+            </div>
+            <button type="submit"><h3>Зареєструватися</h3></button>
+            <div style="display:flex; margin-bottom:30px; margin-top:15px;">
+                <a href="/route/authorization"><h3>Маєте акаунт? Увійти</h3></a>
+            </div>
+        </form>
+    </div>
+</div>

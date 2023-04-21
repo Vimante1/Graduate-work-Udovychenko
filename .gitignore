@@ -1,0 +1,11 @@
+# ASP.NET Core files
+**/bin/
+**/obj/
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.csproj.user
+*.pidb
+*.resharper

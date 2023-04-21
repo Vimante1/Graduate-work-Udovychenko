@@ -1,5 +1,6 @@
 using GraduateWorkUdovychenko.Domain.Models;
 using GraduateWorkUdovychenko.Services.MyUser;
+using GraduateWorkUdovychenko.Services.QuizService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Net.Http.Headers;
@@ -34,6 +35,7 @@ namespace GraduateWorkUdovychenko
 
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IQuizRepository, QuizRepository>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -67,8 +69,6 @@ namespace GraduateWorkUdovychenko
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
-
             app.Run();
         }
     }

@@ -4,30 +4,20 @@ using GraduateWorkUdovychenko.Services.MyUser;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace GraduateWorkUdovychenko.Controllers.Authorization
 {
     public class RegistrationController : Controller
     {
-
-        private readonly UserManager<IdentityUser> _userManager;
         private IUserRepository userRepository;
-        private readonly JWTSettings _options;
 
-        public RegistrationController(IUserRepository userRepository, IOptions<JWTSettings> options) 
+        public RegistrationController(IUserRepository userRepository) 
         {
             this.userRepository = userRepository;
-            _options = options.Value;
         }
 
 
-        [Route("/route/registration")]
+        [Route("/registration")]
         [HttpGet]
         public IActionResult Registration()
         {
@@ -35,7 +25,7 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
         }
 
          
-        [Route("/route/registration")]
+        [Route("/registration")]
         [HttpPost]
         public IActionResult Registration(RegViewModel user)
         {

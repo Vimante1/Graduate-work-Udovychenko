@@ -1,0 +1,25 @@
+﻿.QuizPlace {
+    margin-top: 100px;
+}
+
+.QuizBox {
+    flex-direction: column;
+    display: flex;
+    background-color: #ebefe2;
+    height: 200px;
+    border: 1px solid #d9e7cb;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+}
+
+    .QuizBox:hover {
+        background-color: #defabb;
+    }
+
+    .QuizBox p {
+        margin: 5px 0px 5px 0px;
+    }

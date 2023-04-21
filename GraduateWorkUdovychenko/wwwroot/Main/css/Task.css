@@ -1,0 +1,55 @@
+﻿.TaskPlace {
+    margin-top: 100px;
+}
+.TaskBox {
+    padding: 10px 10px 10px 10px;
+    flex-direction: column;
+    display: flex;
+    background-color: #ebefe2;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    justify-content: left;
+    text-decoration: none;
+    color: black;
+}
+
+.TaskBox h4 {
+    margin-block:0;
+    padding:0;
+    margin-bottom: 10px
+}
+.TaskBox h2 {
+    margin-block-start: 0;
+    padding:0;
+}
+
+
+.AnswerPlace {
+    background-color: white;
+    border-radius: 20px;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+.InputFullAnswer {
+    margin-top: 2px;
+    width: 300px;
+    box-sizing: border-box;
+    border: 2px solid #d9e7cb;
+    border-radius: 17px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 10px 12px 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    background-color: #ebefe2;
+}
+
+    .InputFullAnswer:focus {
+        width: 99%;
+        outline:none;
+    }

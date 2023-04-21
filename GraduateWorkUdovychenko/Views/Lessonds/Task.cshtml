@@ -1,0 +1,51 @@
+﻿@using GraduateWorkUdovychenko.Domain.Models.Quiz;
+@model Quiz
+<link rel="stylesheet" type="text/css" href="~/Main/css/Task.css">
+
+<div class="TaskPlace">
+    <div class="TaskBox">
+        @foreach (var item in Model.Tasks)
+        {
+            if (item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.Question)
+            {
+
+                <div class="AnswerPlace">
+                    <h2>Запитання: @item.Question</h2>
+
+                    <h4>Виберіть 1 правильну відповідь.</h4>
+                    @foreach (var opt in item.Options)
+                    {
+                        <div>
+                            <input name="@item.Question" id="@opt@item.Question" type="radio">
+                            <label for="@opt@item.Question">@opt</label>
+                        </div>
+                    }
+                </div>
+            }
+            else if (item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.FullAnswer)
+            {
+                <div class="AnswerPlace">
+                    <h2>Запитання: @item.Question</h2>
+                    <h4>Введіть повну відповідь.</h4>
+                    <input class="InputFullAnswer"/>
+                </div>
+            }
+            else if(item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.ChechBox)
+            {
+                <div class="AnswerPlace">
+                    <h2>Запитання: @item.Question</h2>
+                    <h4>Виберіть відповіді, можливо декілька відповідей.</h4>
+                    @foreach (var opt in item.Options)
+                    {
+                        <div>
+                            <input name="@item.Question" id="@opt@item.Question" type="checkbox">
+                            <label for="@opt@item.Question">@opt</label>
+                        </div>
+                    }
+                </div>
+            }
+        }
+
+
+    </div>
+</div>

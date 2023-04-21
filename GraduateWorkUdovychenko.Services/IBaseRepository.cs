@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GraduateWorkUdovychenko.Services
 {
-    public interface IBaseDB<T>
+    public interface IBaseRepository<T>
     {
         bool Create(T entity);
 

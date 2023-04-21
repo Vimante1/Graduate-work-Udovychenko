@@ -1,13 +1,9 @@
 ﻿using GraduateWorkUdovychenko.Domain.Models;
 using GraduateWorkUdovychenko.Domain.ViewModels;
 using GraduateWorkUdovychenko.Services.MyUser;
-using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using MongoDB.Driver;
-using MongoDB.Driver.Core.Authentication;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -26,18 +22,19 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
             _userRepository = userRepository;
         }
 
-        [Route("/route/authorization")]
+        [Route("/authorization")]
         public IActionResult Authorization()
         {
             return View();
         }
 
-        [Route("/route/authorization")]
+        [Route("/authorization")]
         [HttpPost]
         public IActionResult Authorization(AuthViewModel user)
         {
             if (ModelState.IsValid)
             {
+
                 var MyUser = _userRepository.Correct(user);
                 if (MyUser != null)
                 {
@@ -62,7 +59,7 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
                 issuer: _options.Issuer,
                 audience: _options.Audience,
                 claims: claims,
-                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(1)),
+                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(120)),
                 notBefore: DateTime.UtcNow,
                 signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
             );

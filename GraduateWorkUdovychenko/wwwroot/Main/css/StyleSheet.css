@@ -5,12 +5,12 @@
 }
 
 .menuPanel {
+
+    background-color: #212121;
     box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid silver;
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: white;
     opacity: 100;
     z-index: 9999;
 }
@@ -37,11 +37,11 @@ margin-right: 60px;
 font-style: normal;
 }
 
-.nav a {
-color:black;
-text-decoration: none ;
-border: none ;
-}
+    .nav a {
+        color: #d9e7cb;
+        text-decoration: none;
+        border: none;
+    }
 
 .user{
     margin-left : auto;
@@ -98,17 +98,17 @@ list-style:none;
 }
 
 .information {
-border: 1px solid silver;
-border-radius: 20px;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
-height: auto;
-width: 400px;
-background-color: #f7f9fb;
-position: absolute;
-flex-direction: column;
+    border: 1px solid silver;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
+    height: auto;
+    width: 400px;
+    background-color: #ebefe2;
+    position: absolute;
+    flex-direction: column;
 }
 
 .inputplace 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GraduateWorkUdovychenko.Domain.Models;
+﻿using GraduateWorkUdovychenko.Domain.Models;
 using GraduateWorkUdovychenko.Domain.ViewModels;
 using MongoDB.Bson;
 using MongoDB.Driver;

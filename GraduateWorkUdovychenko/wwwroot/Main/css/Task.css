@@ -34,10 +34,11 @@
     margin-bottom: 25px;
 }
 .InputFullAnswer {
+    font-family: 'Comfortaa', cursive;
     margin-top: 2px;
     width: 300px;
     box-sizing: border-box;
-    border: 2px solid #d9e7cb;
+    border: 2px solid #b7d894;
     border-radius: 17px;
     font-size: 16px;
     background-color: white;
@@ -53,3 +54,22 @@
         width: 99%;
         outline:none;
     }
+
+
+.SubmitButton {
+    font-family: 'Comfortaa', cursive;
+    width: 305px;
+    height: 45px;
+    margin: 0 0 0 18px;
+    background-color: #cfe5b9;
+    padding: 12px 10px 12px 10px;
+    border: none;
+    font-size: 16px;
+    border-radius: 17px;
+    border: 2px solid #b7d894;
+    margin-bottom: 10px;
+}
+
+.SubmitButton:hover{
+    background-color: #b7d894
+}

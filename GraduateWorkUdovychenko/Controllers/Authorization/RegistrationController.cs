@@ -11,7 +11,7 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
     {
         private IUserRepository userRepository;
 
-        public RegistrationController(IUserRepository userRepository) 
+        public RegistrationController(IUserRepository userRepository)
         {
             this.userRepository = userRepository;
         }
@@ -24,7 +24,7 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
             return View("~/Views/Authorization/Registration.cshtml");
         }
 
-         
+
         [Route("/registration")]
         [HttpPost]
         public IActionResult Registration(RegViewModel user)
@@ -32,6 +32,7 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
             JwtBearerDefaults.AuthenticationScheme.GetEnumerator();
             if (ModelState.IsValid)
             {
+                user.Email.ToLower();
 
                 userRepository.Create(new User
                 {
@@ -50,7 +51,7 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
 
 
 
-        
+
     }
 }
 

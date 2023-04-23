@@ -34,6 +34,7 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
         {
             if (ModelState.IsValid)
             {
+                user.Email = user.Email.ToLower();
 
                 var MyUser = _userRepository.Correct(user);
                 if (MyUser != null)

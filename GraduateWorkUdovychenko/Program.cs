@@ -36,6 +36,7 @@ namespace GraduateWorkUdovychenko
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IQuizRepository, QuizRepository>();
+            builder.Services.AddScoped<ICompletedQuizRepository, CompletedQuizRepository>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 

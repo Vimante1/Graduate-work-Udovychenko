@@ -1,51 +1,60 @@
 ﻿@using GraduateWorkUdovychenko.Domain.Models.Quiz;
+@using MongoDB.Bson;
 @model Quiz
 <link rel="stylesheet" type="text/css" href="~/Main/css/Task.css">
 
+
+
 <div class="TaskPlace">
     <div class="TaskBox">
-        @foreach (var item in Model.Tasks)
-        {
-            if (item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.Question)
+        <form method="post" action="submit">
+            @foreach (var item in Model.Tasks)
             {
+                if (item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.Question)
+                {
+                    <div class="AnswerPlace">
+                        <h2>Запитання: @item.Question</h2>
 
-                <div class="AnswerPlace">
-                    <h2>Запитання: @item.Question</h2>
+                        <h4>Виберіть 1 правильну відповідь.</h4>
+                        @foreach (var opt in item.Options)
+                        {
+                            <div>
+                                <input name="Tasks[@Model.Tasks.IndexOf(item)].Answer" id="Tasks_@Model.Tasks.IndexOf(item)@item.Options.IndexOf(opt)" type="radio" value="@opt">
+                                <label for="Tasks_@Model.Tasks.IndexOf(item)@item.Options.IndexOf(opt)">@opt</label>
+                            </div>
+                        }
+                    </div>
+                }
+                else if (item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.FullAnswer)
+                {
+                    <div class="AnswerPlace">
+                        <h2>Запитання: @item.Question</h2>
+                        <h4>Введіть повну відповідь.</h4>
+                        <input class="InputFullAnswer" name="Tasks[@Model.Tasks.IndexOf(item)].Answer" id="Tasks_@Model.Tasks.IndexOf(item)" type="text">
+                    </div>
+                }
+                else if (item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.ChechBox)
+                {
 
-                    <h4>Виберіть 1 правильну відповідь.</h4>
-                    @foreach (var opt in item.Options)
-                    {
-                        <div>
-                            <input name="@item.Question" id="@opt@item.Question" type="radio">
-                            <label for="@opt@item.Question">@opt</label>
-                        </div>
-                    }
-                </div>
+
+
+                    <div class="AnswerPlace">
+                        <h2>Запитання: @item.Question</h2>
+                        <h4>Виберіть відповіді, можливо декілька відповідей.</h4>
+                        @foreach (var opt in item.Options)
+                        {
+                            <div>
+                                <input name="Tasks[@Model.Tasks.IndexOf(item)].Answer" id="Tasks_@Model.Tasks.IndexOf(item)@item.Options.IndexOf(opt)" type="checkbox" value="@opt">
+                                <label for="Tasks_@Model.Tasks.IndexOf(item)@item.Options.IndexOf(opt)">@opt</label>
+                            </div>
+                        }
+                    </div>
+                }
             }
-            else if (item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.FullAnswer)
-            {
-                <div class="AnswerPlace">
-                    <h2>Запитання: @item.Question</h2>
-                    <h4>Введіть повну відповідь.</h4>
-                    <input class="InputFullAnswer"/>
-                </div>
-            }
-            else if(item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.ChechBox)
-            {
-                <div class="AnswerPlace">
-                    <h2>Запитання: @item.Question</h2>
-                    <h4>Виберіть відповіді, можливо декілька відповідей.</h4>
-                    @foreach (var opt in item.Options)
-                    {
-                        <div>
-                            <input name="@item.Question" id="@opt@item.Question" type="checkbox">
-                            <label for="@opt@item.Question">@opt</label>
-                        </div>
-                    }
-                </div>
-            }
-        }
+            <input type="hidden" name="_id" value="@Model._id">
+            <input type="hidden" name="name" value="@User.Claims.FirstOrDefault().ToString()">
+            <input class="SubmitButton" type="submit" value="Відправити">
 
-
+        </form>
     </div>
 </div>

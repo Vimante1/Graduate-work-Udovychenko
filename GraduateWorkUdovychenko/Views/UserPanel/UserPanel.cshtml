@@ -1,0 +1,20 @@
+﻿@using GraduateWorkUdovychenko.Domain.ViewModels;
+@model IEnumerable<CompletedQuizViewModel>
+<link rel="stylesheet" type="text/css" href="~/Main/css/UserPanel.css">
+
+
+<div class="main">
+
+    <div class="aboutuser">
+        <h1> Вітаю @User.Identity.Name!</h1>
+        <h2>Віші виконані завдання тут</h2>
+    </div>
+
+    <div>
+    @foreach (var item in Model)
+    {
+        <h2>@item.Quiz.Name</h2>
+    }
+    </div>
+
+</div>

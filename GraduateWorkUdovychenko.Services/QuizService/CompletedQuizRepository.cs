@@ -1,5 +1,6 @@
 ﻿using GraduateWorkUdovychenko.Domain.Models.Quiz;
 using GraduateWorkUdovychenko.Domain.ViewModels;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,14 @@ namespace GraduateWorkUdovychenko.Services.QuizService
 
         public IEnumerable<CompletedQuizViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            return _collection.Find(new BsonDocument()).ToEnumerable();
+        }
+
+        public IEnumerable<CompletedQuizViewModel> GetAllForUser(string Mail)
+        {
+            var filter = Builders<CompletedQuizViewModel>.Filter.Eq("UserMail", Mail); // Замініть "UserMail" на назву поля в вашому документі та "mail" на значення, яке ви шукаєте
+            var result =  _collection.Find(filter).ToList();
+            return result;
         }
     }
 }

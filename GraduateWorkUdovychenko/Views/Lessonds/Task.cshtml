@@ -10,6 +10,7 @@
         <form method="post" action="submit">
             @foreach (var item in Model.Tasks)
             {
+                <input type="hidden" name="Tasks[@Model.Tasks.IndexOf(item)].Question" value="@item.Question.ToString()">
                 if (item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.Question)
                 {
                     <div class="AnswerPlace">
@@ -35,9 +36,6 @@
                 }
                 else if (item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.ChechBox)
                 {
-
-
-
                     <div class="AnswerPlace">
                         <h2>Запитання: @item.Question</h2>
                         <h4>Виберіть відповіді, можливо декілька відповідей.</h4>

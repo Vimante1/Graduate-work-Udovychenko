@@ -9,6 +9,6 @@ namespace GraduateWorkUdovychenko.Services.QuizService
 {
     public interface ICompletedQuizRepository : IBaseRepository<CompletedQuizViewModel>
     {
-
+        IEnumerable<CompletedQuizViewModel> GetAllForUser(string Mail);
     }
 }

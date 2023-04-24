@@ -3,7 +3,7 @@ using GraduateWorkUdovychenko.Domain.ViewModels;
 using GraduateWorkUdovychenko.Services.QuizService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 
 namespace GraduateWorkUdovychenko.Controllers
@@ -39,22 +39,14 @@ namespace GraduateWorkUdovychenko.Controllers
         [HttpPost]
         public IActionResult Submit(Quiz Response)
         {
-            string pattern = @"http://schemas\.xmlsoap\.org/ws/2005/05/identity/claims/emailaddress:\s+([\w.-]+@[\w.-]+\.\w+)";
-            Match match = Regex.Match(Response.Name, pattern);
-            if (match.Success)
-            {
-                string email = match.Groups[1].Value;
-                Response.Name = email;
-            }
-            else return View();
+            string UserMail = User.Claims.First().Value;
             var Task = _QuizRepository.GetById(Response._id);
-
 
             for(int i = 0; i < Task.Tasks.Count; i++)
             {
                 Task.Tasks[i].Answer = Response.Tasks[i].Answer;
             }
-            CompletedQuizViewModel Complete = new CompletedQuizViewModel() { Quiz = Task , UserMail = Response.Name};
+            CompletedQuizViewModel Complete = new CompletedQuizViewModel() { Quiz = Task , UserMail = UserMail};
 
             _completedQuizRepository.Create(Complete);
             return View();

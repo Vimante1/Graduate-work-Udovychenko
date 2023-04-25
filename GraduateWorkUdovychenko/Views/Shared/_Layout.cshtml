@@ -14,7 +14,10 @@
                 <ul>
                     <li><a href="/route">Головна</a></li>
                     <li>
-                        <a href="/route/lessonds">Завдання</a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a href="/route/lessonds">Завдання</a>
+                        }
                     </li>  @*href="/route/lessonds"*@
                 </ul>
                 <div class="user">
@@ -22,11 +25,15 @@
                     {
                         <a href="/route/authorization">Вхід</a>
                     }
+                    else if(User.IsInRole("admin"))
+                    {
+                        <a href="/route/AdminPanel">Admin</a>
+                    }
                     else
                     {
                         <a href="/route/userpanel">@User.Identity.Name.ToString()</a>
                     }
-                    <img  class=" userimg" src="~/Main/img/user.svg" />
+                    <img class=" userimg" src="~/Main/img/user.svg" />
                 </div>
             </div>
         </div>

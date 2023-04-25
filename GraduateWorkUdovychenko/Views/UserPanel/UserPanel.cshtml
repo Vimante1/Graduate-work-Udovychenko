@@ -10,11 +10,18 @@
         <h2>Віші виконані завдання тут</h2>
     </div>
 
-    <div>
     @foreach (var item in Model)
     {
-        <h2>@item.Quiz.Name</h2>
+        <div class="QuizBox">
+            <div class="AboutQuiz">
+                <h2>@item.Quiz.Name</h2>
+                <h3>@item.Quiz.Description</h3>
+            </div>
+            <div class="Rating">
+                <h2>Оцінка:</h2>
+                <h2>@item.Rating / 10</h2>
+            </div>
+        </div>
     }
-    </div>
 
 </div>

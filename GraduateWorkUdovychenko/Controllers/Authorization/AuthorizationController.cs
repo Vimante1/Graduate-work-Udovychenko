@@ -53,7 +53,7 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
             List<Claim> claims = new List<Claim>();
             claims.Add(new Claim(ClaimTypes.Email, user.Email));
             claims.Add(new Claim(ClaimTypes.Name, user.Name));
-            claims.Add(new Claim(ClaimTypes.Role, "User"));
+            claims.Add(new Claim(ClaimTypes.Role, user.Role.ToString()));
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey));
 
             var jwt = new JwtSecurityToken(

@@ -10,3 +10,30 @@
     text-align: center;
 }
 
+.QuizBox {
+    
+    display: flex;
+    background-color: #ebefe2;
+    height: 200px;
+    border: 1px solid #d9e7cb;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.AboutQuiz {
+    flex-direction: column;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Rating {
+    flex-direction: column;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

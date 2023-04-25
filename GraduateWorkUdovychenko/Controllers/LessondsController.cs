@@ -49,7 +49,7 @@ namespace GraduateWorkUdovychenko.Controllers
             CompletedQuizViewModel Complete = new CompletedQuizViewModel() { Quiz = Task , UserMail = UserMail};
 
             _completedQuizRepository.Create(Complete);
-            return View();
+            return RedirectToAction("UserPanel", "UserPanel");
 
         }
     }

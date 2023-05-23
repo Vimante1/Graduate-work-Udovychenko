@@ -1,11 +1,11 @@
 ﻿using GraduateWorkUdovychenko.Domain.Models.Quiz;
+using GraduateWorkUdovychenko.Domain.ViewModels;
 using MongoDB.Driver.Core.Operations;
 
 namespace GraduateWorkUdovychenko.Services.QuizService
 {
-    public interface IQuizRepository : IBaseRepository<Quiz>
+    public interface IQuizRepository : IBaseRepository<CreateQuizViewModel>
     {
-        void TestCreate();
-        Quiz GetById(string id);
+        CreateQuizViewModel GetById(string id);
     }
 }

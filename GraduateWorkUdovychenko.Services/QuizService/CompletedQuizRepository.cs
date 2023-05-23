@@ -12,16 +12,16 @@ namespace GraduateWorkUdovychenko.Services.QuizService
 {
     public class CompletedQuizRepository : ICompletedQuizRepository
     {
-        private readonly IMongoCollection<CompletedQuizViewModel> _collection;
+        private readonly IMongoCollection<CreateQuizViewModel> _collection;
 
         public CompletedQuizRepository()
         {
             var client = new MongoClient("mongodb://root:example@132.226.192.36:27017");
             var database = client.GetDatabase("GraduateQuiz");
-            _collection = database.GetCollection<CompletedQuizViewModel>("CompletedQuiz");
+            _collection = database.GetCollection<CreateQuizViewModel>("CompletedQuiz");
         }
 
-        public bool Create(CompletedQuizViewModel entity)
+        public bool Create(CreateQuizViewModel entity)
         {
             try
             {
@@ -31,19 +31,19 @@ namespace GraduateWorkUdovychenko.Services.QuizService
             catch (Exception ex) { return false; }
         }
 
-        public bool Delete(CompletedQuizViewModel Entity)
+        public bool Delete(CreateQuizViewModel entity)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<CompletedQuizViewModel> GetAll()
+        public IEnumerable<CreateQuizViewModel> GetAll()
         {
             return _collection.Find(new BsonDocument()).ToEnumerable();
         }
 
-        public IEnumerable<CompletedQuizViewModel> GetAllForUser(string Mail)
+        public IEnumerable<CreateQuizViewModel> GetAllForUser(string mail)
         {
-            var filter = Builders<CompletedQuizViewModel>.Filter.Eq("UserMail", Mail); // Замініть "UserMail" на назву поля в вашому документі та "mail" на значення, яке ви шукаєте
+            var filter = Builders<CreateQuizViewModel>.Filter.Eq("UserMail", mail); // Замініть "UserMail" на назву поля в вашому документі та "mail" на значення, яке ви шукаєте
             var result =  _collection.Find(filter).ToList();
             return result;
         }

@@ -8,7 +8,7 @@ namespace GraduateWorkUdovychenko.Domain.Enums
 {
     public enum QuizType
     {
-        ChechBox,
+        CheckBox,
         Question,
         FullAnswer
     }

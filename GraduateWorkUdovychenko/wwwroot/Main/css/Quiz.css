@@ -1,25 +1,38 @@
-﻿.QuizPlace {
+﻿.main {
     margin-top: 100px;
 }
 
 .QuizBox {
     flex-direction: column;
     display: flex;
-    background-color: #ebefe2;
+    background-color: #cfe5b9;
     height: 200px;
-    border: 1px solid #d9e7cb;
-    border-radius: 20px;
-    margin-bottom: 10px;
+    border-radius: 17px;
+    border: 2px solid #b7d894;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     color: black;
+    transition: all 0.5s ease;
 }
 
     .QuizBox:hover {
-        background-color: #defabb;
+        background-color: #b7d894
     }
 
     .QuizBox p {
         margin: 5px 0px 5px 0px;
+    }
+
+.Welcome {
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+    .Welcome h1 {
+    margin-top:0px;
+    }
+    .Welcome h2 {
+    margin-bottom:35px;
     }

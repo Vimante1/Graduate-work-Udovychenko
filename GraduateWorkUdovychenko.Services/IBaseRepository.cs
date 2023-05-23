@@ -12,6 +12,6 @@ namespace GraduateWorkUdovychenko.Services
 
         IEnumerable<T> GetAll();
 
-        bool Delete(T Entity);
+        bool Delete(T entity);
     }
 }

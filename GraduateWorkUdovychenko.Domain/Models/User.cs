@@ -13,6 +13,7 @@ namespace GraduateWorkUdovychenko.Domain.Models
     public class User
     {
         [BsonId]
+        [Display(Name = "Email")]
         public string Email { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

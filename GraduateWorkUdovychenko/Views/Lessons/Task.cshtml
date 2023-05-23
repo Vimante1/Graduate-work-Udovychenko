@@ -1,6 +1,6 @@
 ﻿@using GraduateWorkUdovychenko.Domain.Models.Quiz;
 @using MongoDB.Bson;
-@model Quiz
+@model Quiz;
 <link rel="stylesheet" type="text/css" href="~/Main/css/Task.css">
 
 
@@ -20,7 +20,7 @@
                         @foreach (var opt in item.Options)
                         {
                             <div>
-                                <input name="Tasks[@Model.Tasks.IndexOf(item)].Answer" id="Tasks_@Model.Tasks.IndexOf(item)@item.Options.IndexOf(opt)" type="radio" value="@opt">
+                                <input name="Tasks[@Model.Tasks.IndexOf(item)].Answer" id="Tasks_@Model.Tasks.IndexOf(item)@item.Options.IndexOf(opt)" type="radio" value="@item.Options.IndexOf(opt)">
                                 <label for="Tasks_@Model.Tasks.IndexOf(item)@item.Options.IndexOf(opt)">@opt</label>
                             </div>
                         }
@@ -34,7 +34,7 @@
                         <input class="InputFullAnswer" name="Tasks[@Model.Tasks.IndexOf(item)].Answer" id="Tasks_@Model.Tasks.IndexOf(item)" type="text">
                     </div>
                 }
-                else if (item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.ChechBox)
+                else if (item.Type == GraduateWorkUdovychenko.Domain.Enums.QuizType.CheckBox)
                 {
                     <div class="AnswerPlace">
                         <h2>Запитання: @item.Question</h2>
@@ -42,15 +42,14 @@
                         @foreach (var opt in item.Options)
                         {
                             <div>
-                                <input name="Tasks[@Model.Tasks.IndexOf(item)].Answer" id="Tasks_@Model.Tasks.IndexOf(item)@item.Options.IndexOf(opt)" type="checkbox" value="@opt">
-                                <label for="Tasks_@Model.Tasks.IndexOf(item)@item.Options.IndexOf(opt)">@opt</label>
+                                <input name="Tasks[@Model.Tasks.IndexOf(item)].Answer" id="Tasks_@Model.Tasks.IndexOf(item)@item.Options.IndexOf(opt)" value="@item.Options.IndexOf(opt)" type="checkbox">
+                                <label for="Tasks_@Model.Tasks.IndexOf(item)@item.Options.IndexOf(opt)" >@opt</label>
                             </div>
                         }
                     </div>
                 }
             }
             <input type="hidden" name="_id" value="@Model._id">
-            <input type="hidden" name="name" value="@User.Claims.FirstOrDefault().ToString()">
             <input class="SubmitButton" type="submit" value="Відправити">
 
         </form>

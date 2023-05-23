@@ -3,7 +3,7 @@
 
         <h1>Реєстрація</h1>
 
-        <form method="post" asp-controller="Registration" asp-action="Registration">
+        <form method="post" asp-controller="Registration" asp-action="Registration" required>
             <div class="inputplace">
                 <h3>Фамілія</h3>
                 <input name="Surname" required />
@@ -22,7 +22,7 @@
             </div>
             <div class="inputplace">
                 <h3>Повторіть пароль</h3>
-                <input type="Password" name="ConfirmPassword" />
+                <input type="Password" name="ConfirmPassword" required />
             </div>
             <button type="submit"><h3>Зареєструватися</h3></button>
             <div style="display:flex; margin-bottom:30px; margin-top:15px;">

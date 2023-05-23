@@ -13,5 +13,6 @@ namespace GraduateWorkUdovychenko.Domain.Models.Quiz
         public string Question { get; set; }
         public List<string> Options { get; set; }
         public string[] Answer { get; set; }
+        public float TaskRating { get; set; }
     }
 }

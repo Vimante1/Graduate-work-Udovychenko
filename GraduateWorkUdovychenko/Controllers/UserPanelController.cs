@@ -17,9 +17,10 @@ namespace GraduateWorkUdovychenko.Controllers
         [Authorize]
         public IActionResult UserPanel()
         {
-            var UserMail = User.Claims.First().Value;
-            var UserCompleted = _completedQuizRepository.GetAllForUser(UserMail);
-            return View(UserCompleted);
+            //var UserMail = User.Claims.First().Value;
+            //var UserCompleted = _completedQuizRepository.GetAllForUser(UserMail);
+            //UserCompleted
+            return View();
         }
     }
 }

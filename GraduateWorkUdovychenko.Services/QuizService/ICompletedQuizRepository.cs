@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace GraduateWorkUdovychenko.Services.QuizService
 {
-    public interface ICompletedQuizRepository : IBaseRepository<CompletedQuizViewModel>
+    public interface ICompletedQuizRepository : IBaseRepository<CreateQuizViewModel>
     {
-        IEnumerable<CompletedQuizViewModel> GetAllForUser(string Mail);
+        IEnumerable<CreateQuizViewModel> GetAllForUser(string mail);
+
+        
     }
 }

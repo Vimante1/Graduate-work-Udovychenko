@@ -15,7 +15,13 @@ namespace GraduateWorkUdovychenko
             var builder = WebApplication.CreateBuilder(args);
             #region JWT
             builder.Services.Configure<JWTSettings>(builder.Configuration.GetSection("JWTSettings"));
-            builder.Services.AddAuthorization();
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("admin", policy =>
+                {
+                    policy.RequireRole("admin"); // Вимагати наявність ролі "admin"
+                });
+            });
 
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>

@@ -1,6 +1,4 @@
-﻿using GraduateWorkUdovychenko.Domain.Models.Quiz;
-using GraduateWorkUdovychenko.Domain.ViewModels;
-using MongoDB.Driver.Core.Operations;
+﻿using GraduateWorkUdovychenko.Domain.ViewModels;
 
 namespace GraduateWorkUdovychenko.Services.QuizService
 {

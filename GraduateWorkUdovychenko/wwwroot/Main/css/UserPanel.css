@@ -5,18 +5,16 @@
     height: 100vh;
 }
 
-
 .aboutuser {
     text-align: center;
 }
 
 .QuizBox {
-    
     display: flex;
-    background-color: #ebefe2;
+    background-color: #cfe5b9;
     height: 200px;
-    border: 1px solid #d9e7cb;
-    border-radius: 20px;
+    border-radius: 17px;
+    border: 2px solid #b7d894;
     margin-bottom: 10px;
     text-decoration: none;
     color: black;

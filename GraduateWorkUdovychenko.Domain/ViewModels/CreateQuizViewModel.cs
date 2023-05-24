@@ -1,9 +1,4 @@
 ﻿using GraduateWorkUdovychenko.Domain.Models.Quiz;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraduateWorkUdovychenko.Domain.ViewModels
 {
@@ -13,10 +8,21 @@ namespace GraduateWorkUdovychenko.Domain.ViewModels
         public float Rating { get; set; }
         public string[][] CorrectAnswer { get; set; }
 
-        public CreateQuizViewModel()
+        public void CreateNewId()
         {
             Random rand = new Random();
             _id = rand.Next(123123123).ToString();
+        }
+
+        public void SummaryRating(CreateQuizViewModel correct)
+        {
+            float rating = 0;
+            foreach (var task in correct.Tasks)
+            {
+                rating += task.TaskRating;
+            }
+
+            Rating = rating;
         }
     }
 }

@@ -13,13 +13,13 @@ namespace GraduateWorkUdovychenko
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            #region JWT
+            
             builder.Services.Configure<JWTSettings>(builder.Configuration.GetSection("JWTSettings"));
             builder.Services.AddAuthorization(options =>
             {
                 options.AddPolicy("admin", policy =>
                 {
-                    policy.RequireRole("admin"); // Вимагати наявність ролі "admin"
+                    policy.RequireRole("admin"); 
                 });
             });
 
@@ -37,21 +37,17 @@ namespace GraduateWorkUdovychenko
                         ValidateIssuerSigningKey = true
                     };
                 });
-            #endregion
-
-
+           
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IQuizRepository, QuizRepository>();
             builder.Services.AddScoped<ICompletedQuizRepository, CompletedQuizRepository>();
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
-
 
             var app = builder.Build();
 
             app.Use(async (context, next) =>
             {
-                string token = context.Request.Cookies["token"]; // отримати токен з кукі
+                string token = context.Request.Cookies["token"]; 
                 if (!string.IsNullOrEmpty(token))
                 {
                     context.Request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token).ToString();
@@ -60,8 +56,6 @@ namespace GraduateWorkUdovychenko
                 await next.Invoke();
             });
 
-
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");

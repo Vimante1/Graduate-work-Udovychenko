@@ -1,27 +1,46 @@
-﻿
-
-.main {
+﻿.main {
     margin-top: 100px;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
 }
 
 .AddTaskButton {
-    padding: 7px;
+    display:block;
     font-family: 'Comfortaa', cursive;
     background-color: #cfe5b9;
     padding: 12px 10px 12px 10px;
     font-size: 16px;
-    border-radius: 17px;
     border: 2px solid #b7d894;
-    margin-bottom: 10px;
+    border-radius: 17px;
+    margin-bottom: 35px;
     color: black;
     text-decoration: none;
     transition: all 0.5s ease; 
+    height:100%;
+    text-align:center
 
 }
 
     .AddTaskButton:hover {
        background-color: #b7d894
     }
+
+.QuizBox {
+    display: flex;
+    background-color: #cfe5b9;
+    height: 200px;
+    border-radius: 17px;
+    border: 2px solid #b7d894;
+    text-decoration: none;
+    color: black;
+    transition: all 0.5s ease;
+    text-align: center;
+    align-items: center
+}
+
+    .QuizBox:hover {
+        background-color: #b7d894
+    }
+
+    .QuizBox h1, h2, h3, h4, h5 {
+        margin: 10px 0px 10px 0px;
+    }
+    

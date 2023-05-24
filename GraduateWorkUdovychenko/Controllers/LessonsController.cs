@@ -1,12 +1,8 @@
-﻿using Amazon.Runtime;
-using GraduateWorkUdovychenko.Domain.Models.Quiz;
+﻿using GraduateWorkUdovychenko.Domain.Models.Quiz;
 using GraduateWorkUdovychenko.Domain.ViewModels;
 using GraduateWorkUdovychenko.Services.QuizService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.FileSystemGlobbing.Internal.PathSegments;
-using System.Net.Mail;
-using System.Text.RegularExpressions;
 
 namespace GraduateWorkUdovychenko.Controllers
 {
@@ -42,7 +38,8 @@ namespace GraduateWorkUdovychenko.Controllers
         [HttpPost]
         public IActionResult Submit(CreateQuizViewModel response)
         {
-            var correct = _quizRepository.GetById(response._id);
+            CreateQuizViewModel correct = _quizRepository.GetById(response._id);
+            correct.CreateNewId();
             correct.UserMail = User.Claims.FirstOrDefault().Value;
 
             for (int i = 0; i < response.Tasks.Count; i++)
@@ -54,20 +51,17 @@ namespace GraduateWorkUdovychenko.Controllers
 
             if (QuizWithoutFullAnswer(correct))
             {
-                correct.Rating = SummaryRating(correct);
+                correct.SummaryRating(correct);
             }
             _completedQuizRepository.Create(correct);
             return RedirectToAction("Lessons");
         }
 
-
-
         private CreateQuizViewModel CalculateRatingForTask(CreateQuizViewModel correct)
         {
             float ratingForOneTask = correct.MaxRatingForQuiz / correct.Tasks.Count;
 
-
-            for (int taskCounter = 0; taskCounter < correct.Tasks.Count - 1; taskCounter++)
+            for (int taskCounter = 0; taskCounter < correct.Tasks.Count; taskCounter++)
             {
                 float ratingForCurrentTask = 0;
                 float ratingForOneCorrectAnswerOption = ratingForOneTask / (correct.CorrectAnswer[taskCounter].Length);
@@ -103,16 +97,6 @@ namespace GraduateWorkUdovychenko.Controllers
                 }
             }
             return true;
-        }
-
-        private float SummaryRating(CreateQuizViewModel correct)
-        {
-            float rating = 0;
-            foreach(var task in correct.Tasks)
-            {
-                rating += task.TaskRating;
-            }
-            return rating;
         }
     }
 }

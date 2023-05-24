@@ -24,7 +24,6 @@
     padding:0;
 }
 
-
 .AnswerPlace {
     background-color: white;
     border-radius: 20px;
@@ -72,3 +71,25 @@
 .SubmitButton:hover{
     background-color: #b7d894
 }
+
+.MyInput {
+    align-content:center;
+    font-family: 'Comfortaa', cursive;
+    margin-top: 2px;
+    width: 85px;
+    border: 2px solid #ebefe2;
+    box-sizing: border-box;
+    transition: all 0.5s;
+    border-radius: 17px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px;
+    background-color: #ebefe2;
+}
+
+    .MyInput:focus {
+        border: 2px solid #b7d894;
+        outline: none;
+    }

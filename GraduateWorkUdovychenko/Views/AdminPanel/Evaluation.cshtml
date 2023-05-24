@@ -1,0 +1,47 @@
+﻿@using GraduateWorkUdovychenko.Domain.ViewModels;
+@model CreateQuizViewModel;
+
+<link rel="stylesheet" type="text/css" href="~/Main/css/Task.css">
+
+<div class="TaskPlace">
+    <div class="TaskBox">
+        <h3>Оцінка за тестові запитання виставленна автоматично, але за потреби її можна змінити.</h3>
+        <h3>Необхідно оцінити запитання типу "Розгорнута відповідь", <p>Вони підсвічені зеленим контуром.</h3>
+        <h3>Максимальна кількість балів за одне запитання: @{string ForOne = (Model.MaxRatingForQuiz / @Model.Tasks.Count).ToString();} @ForOne</h3>
+        <form method="post" action="SubmitEvaluation">
+            @foreach (var item in Model.Tasks)
+            {
+                <input type="hidden" name="Tasks[@Model.Tasks.IndexOf(item)].Question" value="@item.Question.ToString()">
+                if (item.Type != GraduateWorkUdovychenko.Domain.Enums.QuizType.FullAnswer)
+                {
+                    <div class="AnswerPlace">
+                        <h2>Запитання: @item.Question</h2>
+                        @{string type = item.Type == @GraduateWorkUdovychenko.Domain.Enums.QuizType.Question ? "Одна вірна відповідь." : "Декілька вірних відповідей";}
+                        <h3>@type</h3>
+                        @foreach(var opt in item.Options) {<h4>@opt</h4>}
+                        
+                        <h3>Користувач відповів:</h3>
+
+                        @foreach (var opt in item.Answer) {<h4> @item.Options[Convert.ToInt32(opt)]</h4>}
+
+                        <h3>Вірна відповідь:</h3>
+                        @foreach (var opt in Model.CorrectAnswer[Model.Tasks.IndexOf(item)]) {<h4> @item.Options[Convert.ToInt32(opt)]</h4>}
+                        <input required style="margin-top:40px;" type="number" name="Tasks[@Model.Tasks.IndexOf(item)].TaskRating" class="MyInput" value="@Model.Tasks[@Model.Tasks.IndexOf(item)].TaskRating"> балів за запитання.
+                    </div>
+                }
+                else
+                {
+                    <div class="AnswerPlace" style="border: 2px solid #b7d894;">
+                        <h2>Запитання: @item.Question</h2>
+                        <h3>Повна відповідь.<p> Користувач відповів:</h3>
+                            <h4>@item.Answer[0]</h4>
+                        <input required style="margin-top:40px;" type="number" name="Tasks[@Model.Tasks.IndexOf(item)].TaskRating" class="MyInput"> балів за запитання.
+
+                    </div>
+                }
+            }
+            <input type="hidden" name="_id" value="@Model._id" />
+            <input class="SubmitButton" type="submit" value="Зберегти">
+        </form>
+    </div>
+</div>

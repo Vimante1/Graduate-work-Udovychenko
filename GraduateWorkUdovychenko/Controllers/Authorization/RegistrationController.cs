@@ -2,7 +2,6 @@
 using GraduateWorkUdovychenko.Domain.ViewModels;
 using GraduateWorkUdovychenko.Services.MyUser;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GraduateWorkUdovychenko.Controllers.Authorization
@@ -16,14 +15,12 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
             this.userRepository = userRepository;
         }
 
-
         [Route("/registration")]
         [HttpGet]
         public IActionResult Registration()
         {
             return View("~/Views/Authorization/Registration.cshtml");
         }
-
 
         [Route("/registration")]
         [HttpPost]
@@ -47,11 +44,6 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
             }
             return View("~/Views/Authorization/Registration.cshtml");
         }
-
-
-
-
-
     }
 }
 

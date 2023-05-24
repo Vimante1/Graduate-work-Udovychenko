@@ -1,7 +1,5 @@
 ﻿var TaskCounter = 0;
-
 var Button = $('#AddTaskButton');
-
 Button.click(() => {
 
     var Options = $("#Options").val();
@@ -35,7 +33,6 @@ function CreateFullAnswer() {
         value: 2
     });
 
-
     var hidenAnswerTypeHTML = hidenAnswerType.prop('outerHTML');
     var fullAnswerHTML = FullAnswer.prop('outerHTML');
     var hidenCorrectAnserHTML = hidenCorrectAnser.prop('outerHTML');
@@ -46,7 +43,6 @@ function CreateRadioBoxes() {
     var AnswerPlace = $('<div>', {
         class: 'AnswerPlace'
     });
-
     var AddOneButton = $('<input>', {
         type: 'button',
         class: 'MyButton',
@@ -58,10 +54,8 @@ function CreateRadioBoxes() {
         type: 'hidden',
         value: 1
     });
-
     var counter = TaskCounter;
     var optionCounter = 0; // Лічильник опцій для поточного AnswerPlace
-
     AddOneButton.click(function () {
         var optionName = 'Tasks[' + counter + '].options[' + optionCounter + ']';
 
@@ -72,21 +66,18 @@ function CreateRadioBoxes() {
             style: 'width: 97%; margin-top: 35px;',
             placeholder: 'Введіть варіант відповіді'
         });
-
         var checkbox = $('<input>', {
             type: 'radio',
             name: 'CorrectAnswer[' + counter + ']',
             value: optionCounter,
             required: true
         });
-
         var label = $('<label>').append(optionInput).append(checkbox);
 
         $(this).before(label);
 
         optionCounter++; // Збільшення лічильника опцій після додавання нового поля вводу
     });
-
     var FullAnswer = $('<input>', {
         name: 'Tasks[' + TaskCounter + '].Question',
         type: 'text',
@@ -107,7 +98,6 @@ function CreateCheckBoxes() {
     var AnswerPlace = $('<div>', {
         class: 'AnswerPlace'
     });
-
     var AddOneButton = $('<input>', {
         type: 'button',
         class: 'MyButton',
@@ -133,13 +123,11 @@ function CreateCheckBoxes() {
             style: 'width: 97%; margin-top: 35px;',
             placeholder: 'Введіть варіант відповіді',
         });
-
         var checkbox = $('<input>', {
             type: 'checkbox',
             name: 'CorrectAnswer[' + counter + ']',
             value: optionCounter
         });
-
         var label = $('<label>').append(optionInput).append(checkbox);
 
         $(this).before(label);

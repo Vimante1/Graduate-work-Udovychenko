@@ -4,55 +4,27 @@
 
 <div class="main">
     <form method="post" action="submit">
-
         <div class="TaskBox">
             <div class="AnswerPlace">
                 <input required name="Name" style="margin-bottom:25px" type="text" class="MyInput" placeholder="Введіть назву завдання" autocomplete="new-password" />
                 <input required name="Description" style="margin-bottom:25px" type="text" class="MyInput" placeholder="Введіть короткий опис завдання" autocomplete="off" />
                 <input required name="MaxRatingForQuiz" type="number" class="MyInput" placeholder="Введіть максимальну кількість балів за тест" autocomplete="off" />
             </div>
-
             <div id="Reflection">
             </div>
-
-
             <div style="margin-bottom: 25px;">
                 <select id="Options" style="width: 49.8%;" class="MySelect" name="select">
                     <option value="1" selected>Одна вірна відповідь</option>
                     <option value="2">Декілька вірних відповідей</option>
                     <option value="3">Повна відповідь</option>
                 </select>
-
-
                 <input id="AddTaskButton" style="width: 49.8%;" class="MyButton" type="button" value="Додати завдання">
             </div>
-
             <div>
                 <input style="width: 100%;" class="MyButton" type="submit" value="Зберігти завдання">
             </div>
         </div>
     </form>
-
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="~/Main/js/AddTask.js"></script>
-
-
-
-@*<div class="AnswerPlace">
-  <label for="input1">Поле 1:</label>
-  <input type="text" name="Tasks[0].Options[0]" id="input1" />
-  <input type="radio" name="CorrectAnswer[0]" value="input1" />
-
-  <label for="input2">Поле 2:</label>
-  <input type="text" name="Tasks[0].Options[1]" id="input2" />
-  <input type="radio" name="CorrectAnswer[0]" value="input2" />
-
-  <label for="input3">Поле 3:</label>
-  <input type="text" name="Tasks[0].Options[2]" id="input3" />
-  <input type="radio" name="CorrectAnswer[0]" value="input3" />
-
-  <label for="input4">Поле 4:</label>
-  <input type="text" name="Tasks[0].Options[3]" id="input4" />
-  <input type="radio" name="CorrectAnswer[0]" value="input4" />
-  </div>*@

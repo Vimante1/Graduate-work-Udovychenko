@@ -1,11 +1,9 @@
 ﻿
-
 .main {
     margin-top: 100px;
     justify-content: center;
     align-items: flex-start;
 }
-
 
 .TaskBox {
     padding: 10px 10px 10px 10px;
@@ -30,7 +28,6 @@
         margin-block-start: 0;
         padding: 0;
     }
-
 
 .AnswerPlace {
     background-color: white;

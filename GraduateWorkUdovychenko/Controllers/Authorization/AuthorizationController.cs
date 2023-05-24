@@ -47,7 +47,6 @@ namespace GraduateWorkUdovychenko.Controllers.Authorization
 
         }
 
-
         public string GetToken(User user)
         {
             List<Claim> claims = new List<Claim>();

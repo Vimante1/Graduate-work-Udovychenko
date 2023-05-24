@@ -1,12 +1,6 @@
-﻿using GraduateWorkUdovychenko.Domain.Models.Quiz;
-using GraduateWorkUdovychenko.Domain.ViewModels;
+﻿using GraduateWorkUdovychenko.Domain.ViewModels;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraduateWorkUdovychenko.Services.QuizService
 {
@@ -46,6 +40,20 @@ namespace GraduateWorkUdovychenko.Services.QuizService
             var filter = Builders<CreateQuizViewModel>.Filter.Eq("UserMail", mail); // Замініть "UserMail" на назву поля в вашому документі та "mail" на значення, яке ви шукаєте
             var result =  _collection.Find(filter).ToList();
             return result;
+        }
+
+        public CreateQuizViewModel GetById(string id)
+        {
+            var filter = Builders<CreateQuizViewModel>.Filter.Eq("_id", id);
+            var request = _collection.Find(filter).FirstOrDefault();
+            return request;
+        }
+
+        public bool UpdateById(CreateQuizViewModel viewModel)
+        {
+            var filter = Builders<CreateQuizViewModel>.Filter.Eq("_id", viewModel._id);
+            var result = _collection.ReplaceOne(filter, viewModel);
+            return true;
         }
     }
 }

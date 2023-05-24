@@ -69,17 +69,21 @@ margin: 0 100px 0 100px;
     margin-left: 5px;
     height :50px;
 }
+
 .block ul {
 list-style:none;
 }
+
 .welcome{
     display:flex;
 }
+
 .ddd {
     justify-content: center;
     display: flex;
     align-items: center;
 }
+
 .dddd {
     text-align:center;
 }
